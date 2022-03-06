@@ -7,6 +7,7 @@ Hi, this is my developer test. I'll list down below all the technologies I've us
 - axios - Promised based HTTP client used to get movie details.
 - Git
 - SCSS/SASS
+- Bootstrap
 - Understrap Theme (child)
 
 ## Installation
