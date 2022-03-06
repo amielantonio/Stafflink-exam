@@ -1,5 +1,6 @@
 #app-vue {
-  background-color: #1E2129; }
+  background-color: #1E2129;
+  min-height: 800px; }
 
 .search-title {
   color: #fff;
