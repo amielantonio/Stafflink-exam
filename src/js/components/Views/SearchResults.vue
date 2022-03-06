@@ -4,7 +4,7 @@
 
         <div class="row">
             <div class="col-sm-12">
-                <h1>Search results for: </h1>
+                <h1 class="search-title">Search results for: <span v-html="this.searchResults"></span></h1>
             </div>
 
         </div>
@@ -15,17 +15,20 @@
 
                     <ul class="search-results">
                         <li class="search-result" v-for="movie in movieResults">
-                            <div>
-                                <img :src="movie['Poster']" :alt="movie['Title']">
+                            <div class="search-result__img-container">
+                                <img :src="movie['Poster']" :alt="movie['Title']" class="search-result__img">
                             </div>
                             <div class="search-result__description">
 
-                                <span class="search-result__title">{{ movie['Title'] }}</span><br />
                                 <span class="search-result__year">{{ movie['Year'] }}</span><br />
+                                <p class="search-result__title">{{ movie['Title'] }}</p>
 
-                                <button type="button" class="btn btn-block btn-primary"
+                                <button type="button" class="btn btn-primary btn-sm btn-block mt-2 search-result__button"
                                         :data-title="movie['Title']"
-                                        :data-imdb-id="movie['imdbID']">View more</button>
+                                        :data-imdb-id="movie['imdbID']">
+                                    <i class="fa fa-play mr-2" aria-hidden="true"></i> View more
+                                </button>
+
                             </div>
                         </li>
                     </ul>
@@ -55,6 +58,11 @@
                 },
                 currentSearchTerms: [],
                 movieResults: [],
+            }
+        },
+        computed: {
+            searchResults() {
+                return this.currentSearchTerms.map( term => term.charAt(0).toUpperCase() + term.slice(1) ).join(', ');
             }
         },
         created() {

@@ -45,6 +45,7 @@ function theme_enqueue_styles() {
 	}
 
 	wp_enqueue_script('vue-main-js', get_stylesheet_directory_uri(). "/js/app.js", [], $the_theme->get('Version') );
+	wp_enqueue_style('vue-main-css', get_stylesheet_directory_uri(). "/css/app.css", [], $the_theme->get('Version') );
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 
